@@ -1,0 +1,72 @@
+<div class="modal  Fade" id="exampleModal" tabindex="-1" [ngStyle]="{'display':display}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="border-bottom modalheader text-center">
+                <h4 class="modal-title p-2 w-50 m-auto mt-2" id="exampleModalLabel">Register</h4>
+            </div>
+            <div class="modal-body carmodal">
+                <div class="container-fluid">
+                    <form [formGroup]="userdataform" (ngSubmit)="save()">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="imgUpload">
+                                    <img class="shadow" src="../../../assets/istockphoto-1397556857-612x612.jpg"
+                                        width="100">
+                                    <p class="mt-2 text-primary">Upload Your Photo</p>
+                                    <input type="file" class="w-100" formControlName="userimg">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="First Name"
+                                    formControlName="firstName">
+                                    <div *ngIf="userdataform.get('firstName')?.touched || userdataform.get('firstName')?.dirty">
+                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('firstName')?.errors?.['required']">
+                                            it is required field
+                                        </div>
+                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('firstName')?.errors?.['pattern']">
+                                            Please Enter Proper Data
+                                        </div>
+                                    </div>
+                                <input type="text" class="form-control mt-2" placeholder="last Name"
+                                    formControlName="lastName">
+                                <input type="email" class="form-control mt-2" placeholder="Email"
+                                    formControlName="email">
+                                <input type="text" class="form-control mt-2" placeholder="(123)456-7890"
+                                    formControlName="number">
+                                    <div *ngIf="userdataform.get('number')?.touched || userdataform.get('number')?.dirty">
+                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('number')?.errors?.['required']">
+                                            it is required field
+                                        </div>
+                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('number')?.errors?.['pattern']">
+                                            Please Enter Proper Data
+                                        </div>
+                                    </div>
+                                <label for="customRange3" class="form-label">Age {{userdataform.value.age}}</label>
+                                <input type="range" class="form-range" min="20" max="60" [defaultValue]="20" step="1"
+                                    id="customRange3" formControlName="age">
+                                <input type="text" class="form-control mt-2" placeholder="State"
+                                    formControlName="state">
+                                <input type="text" class="form-control mt-2" placeholder="country"
+                                    formControlName="country">
+                                <div class="dropdown mt-2 border">
+                                    <button class="btn btn-light w-100 dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Address
+                                    </button>
+                                    <ul class="dropdown-menu  w-100" aria-labelledby="dropdownMenuButton1">
+                                        <li><input type="text" class="form-control w-100" placeholder="Address 1"
+                                                formControlName="address1"></li>
+                                        <li><input type="text" class="form-control w-100 mt-2" placeholder="Address 2"
+                                                formControlName="address2">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button routerLink="/user-profile" type="submit" [disabled]="userdataform.invalid" class="btn btn-submit px-4 mt-2">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,4 @@
+For JSON API Run Fake JSON Server using command
+installation :npm install -g json-server
+
+command: json-server --watch db.json

@@ -1,0 +1,77 @@
+<div class="main-container">
+    <div class="main">
+        <div class="navbar">
+        <h1 >
+            DEMO APP
+        </h1>
+        <nav>
+            <ul>
+                <li routerLink="/home-page" routerLinkActive="routerActive">Home</li>
+                <li>About US</li>
+                <li>Jobs</li>
+                <li>Client</li>
+                <li>Employer</li>
+                <li>Contact US</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="search-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="text-light fs-1 fst-italic">I'm looking for..</p>
+                    <input type="text" class="form-control fst-italic text-muted mb-2" placeholder="Enter a job description">
+                    <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label text-light " for="inlineCheckbox1">Full Time</label>
+                      </div>
+                    <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label text-light" for="inlineCheckbox1">Part Time / casual / Freelancer</label>
+                      </div>
+                      <div class="dropdown-center">
+                        <button class="btn text-muted btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Select your location
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" >Pune</a></li>
+                          <li><a class="dropdown-item" >Mumbai</a></li>
+                          <li><a class="dropdown-item">Nagpur</a></li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                     <button class="btn btn-search px-5"><i class="fa-solid fa-magnifying-glass fa-sm" style="color: #fafcff;"></i> Search</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-register mt-3 px-4" routerLink="/home-page/user-registration">Register</button>
+    </div>
+    </div>
+    <!-- details-section -->
+    <section class="details-section">
+        <div class="text-center pt-5">
+            <p class="fst-italic fs-3  mb-0 text-muted">We're leaders in</p>
+            <p class="fs-2  text-muted">Creative Digital Recruitment</p>
+            <hr size="7" width="80" class="d-border">
+        </div>
+        <div class="d-details pt-3">
+            <p class="text-center">Based in Surry Hills, the creative hub of Sydney we are surrounded by creativity <br>
+                and that reflects on the type jobs we recruit for.</p>
+        </div>
+        <button class="btn d-btn mt-4">FIND OUT MORE ABOUT US!</button>
+    </section>
+    <!-- contact-section -->
+    <section class="contact-section">
+        <p class="text-center text-light">Subcribe To Our Job Seeker Mailing List</p>
+        <input type="email" class="form-control bg-dark p-2 w-25" placeholder="Enter Your Email Address"><i
+            class="fa-solid mail-logo fa-envelope fa-xl" style="color: #ffffff;"></i>
+    </section>
+    <!-- footer-section -->
+    <footer class="footer">
+                <span class="mail-logo2"><i class="fa-regular fa-envelope fa-2xl" style="color: #74C0FC;"></i></span>
+                <input type="email" class="form-control w-25" placeholder="Enter Your Email Address">
+                <p class="text-muted mt-5 ms-5">Copyright &#169; 2014 Two Bytes Consulting. <span class="fw-bold">terms & policies</span></p>
+    </footer>
+</div>
+<router-outlet></router-outlet>
