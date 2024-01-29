@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-md-4 img-section">
             <h2 class="text-primary m-3">Profile</h2>
-            <img [src]="str" width="200"  class="m-3">
+            <img [src]="userDetails.userProfile" width="200"  class="m-3">
         </div>
         <div class="col-md-8 para-section pt-4 mt-5">
-            <p>I'm {{userDetails.firstName}} {{userDetails.lastName}} and I'm above {{userDetails.age}} years and you can send email to <span class="highlightdata"> {{userDetails.email}}</span>. I Live in the state of {{userDetails.state}} of {{userDetails.country}} and please send me newslatter and reahout to me bt phone number {{userDetails.number}}.</p>
+            <p>I'm {{userDetails.userFirstName}} {{userDetails.userLastName}} and I'm above {{userDetails.userAge}} years and you can send email to <span class="highlightdata"> {{userDetails.userEmailId}}</span>. I Live in the state of {{userDetails.userState}} of {{userDetails.userCountry}} and please send me newslatter and reach-out to me by phone number {{userDetails.userPhone}}. my interests are {{userDetails.inretesrArr}}</p>
         </div>
     </div>
 </div>

@@ -14,42 +14,92 @@
                                     <img class="shadow" src="../../../assets/istockphoto-1397556857-612x612.jpg"
                                         width="100">
                                     <p class="mt-2 text-primary">Upload Your Photo</p>
-                                    <input type="file" class="w-100" formControlName="userimg">
+                                    <input type="file" class="w-100" (change)="onselectimg($event)"
+                                        formControlName="userimg">
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" placeholder="First Name"
                                     formControlName="firstName">
-                                    <div *ngIf="userdataform.get('firstName')?.touched || userdataform.get('firstName')?.dirty">
-                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('firstName')?.errors?.['required']">
-                                            it is required field
-                                        </div>
-                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('firstName')?.errors?.['pattern']">
-                                            Please Enter Proper Data
-                                        </div>
+                                <div
+                                    *ngIf="userdataform.get('firstName')?.touched || userdataform.get('firstName')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('firstName')?.errors?.['required']">
+                                        it is required field
                                     </div>
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('firstName')?.errors?.['pattern']">
+                                        Please Enter Proper Data
+                                    </div>
+                                </div>
                                 <input type="text" class="form-control mt-2" placeholder="last Name"
                                     formControlName="lastName">
+                                <div
+                                    *ngIf="userdataform.get('lastName')?.touched || userdataform.get('lastName')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('lastName')?.errors?.['required']">
+                                        it is required field
+                                    </div>
+                                </div>
                                 <input type="email" class="form-control mt-2" placeholder="Email"
                                     formControlName="email">
+                                <div *ngIf="userdataform.get('email')?.touched || userdataform.get('email')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('email')?.errors?.['required']">
+                                        it is required field
+                                    </div>
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('email')?.errors?.['pattern']">
+                                        Please Enter Proper Mail Id (abc@gmail.com)
+                                    </div>
+                                </div>
                                 <input type="text" class="form-control mt-2" placeholder="(123)456-7890"
                                     formControlName="number">
-                                    <div *ngIf="userdataform.get('number')?.touched || userdataform.get('number')?.dirty">
-                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('number')?.errors?.['required']">
-                                            it is required field
-                                        </div>
-                                        <div class="invalid-feedback d-block" *ngIf="userdataform.get('number')?.errors?.['pattern']">
-                                            Please Enter Proper Data
-                                        </div>
+                                <div *ngIf="userdataform.get('number')?.touched || userdataform.get('number')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('number')?.errors?.['required']">
+                                        it is required field
                                     </div>
-                                <label for="customRange3" class="form-label">Age {{userdataform.value.age}}</label>
-                                <input type="range" class="form-range" min="20" max="60" [defaultValue]="20" step="1"
-                                    id="customRange3" formControlName="age">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('number')?.errors?.['pattern']">
+                                        Please Enter Proper Data
+                                    </div>
+                                </div>
+                                <label for="customRange3" class="form-label">Age :{{userdataform.value.age}}</label>
+                                <input type="range" class="m-2 " min="20" max="60" [defaultValue]="20" step="1" id="customRange3"
+                                    formControlName="age">
+                                <div *ngIf="userdataform.get('age')?.touched || userdataform.get('age')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('age')?.errors?.['required']">
+                                        it is required field
+                                    </div>
+                                </div>
                                 <input type="text" class="form-control mt-2" placeholder="State"
                                     formControlName="state">
+                                <div *ngIf="userdataform.get('state')?.touched || userdataform.get('state')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('state')?.errors?.['required']">
+                                        it is required field
+                                    </div>
+                                </div>
                                 <input type="text" class="form-control mt-2" placeholder="country"
                                     formControlName="country">
-                                <div class="dropdown mt-2 border">
+                                <div *ngIf="userdataform.get('country')?.touched || userdataform.get('country')?.dirty">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="userdataform.get('country')?.errors?.['required']">
+                                        it is required field
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter Your Interest"
+                                    formControlName="interest">
+                                <button type="button" class="btn btn-danger m-1" (click)="addInterest()">add
+                                    interest</button>
+                                <div class="p-2 m-2 interestBox">
+                                    <p class="d-inline-block" *ngFor="let item of interestArr; let i = index">
+                                        <span class="bg-secondary border p-2 rounded px-2 m-2">{{item}} &nbsp; <i  (click)="removeInterest(i)" class="fa-solid fa-xmark" style="color: #ffffff;"></i></span>
+                                    </p>
+                                </div>
+                              <div class="dropdown mt-2 border">
                                     <button class="btn btn-light w-100 dropdown-toggle" type="button"
                                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         Address

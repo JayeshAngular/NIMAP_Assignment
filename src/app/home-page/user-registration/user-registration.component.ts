@@ -9,9 +9,11 @@ import { HttpSVCService } from 'src/app/services/http-svc.service';
 })
 export class UserRegistrationComponent {
   display: string | undefined;
-  userData:any;
   userdataform !: FormGroup
   stateOptionArr:string[] = ["Maharashtra","Delhi","Karnataka"];
+  userimgurl:string = "";
+  userData: any;
+  interestArr:any[] = []
 
   constructor(private fb:FormBuilder, private httpservice:HttpSVCService){}
     ngOnInit(): void{
@@ -20,23 +22,41 @@ export class UserRegistrationComponent {
       userimg:['',[Validators.required]],
       firstName:['', [Validators.required,  Validators.pattern('[A-Za-z]{1,20}')]],
       lastName:['',[Validators.required]],
-      email:['',[Validators.required]],
+      email:['',[Validators.required,  Validators.pattern('[a-zA-Z0-9_.-]+[@][a-z]+[.][a-z]{2,3}')]],
       number:['',[Validators.required, Validators.pattern('[1-9]{10}')]],
       age:['',[Validators.required]],
       state:['',[Validators.required]],
       country:['',[Validators.required]],
       address1:['',[Validators.required]],
-      address2:['',[Validators.required]]
+      address2:['',[Validators.required]],
+      interest:['',[]]
     })
  }
+ addInterest(){
+    this.interestArr.push(this.userdataform.controls['interest'].value);
+ }
+ removeInterest(data:any){
+    this.interestArr.splice(data,1)
+ }
  save(){
-  this.userData = this.userdataform.value
-  console.log(this.userdataform);
+  const userData = new FormData;
+  this.userData = this.userdataform.value;
+  this.userData.userProfile = this.userimgurl;
+  this.userData.interestArray= this.interestArr;
   
   this.httpservice.postDataFromServer("users", this.userData).subscribe({
     next: (response: any) => {
       console.log("Response Received ", response);
     }
  })
+}
+
+onselectimg(eventData:any){
+ var reader = new FileReader();
+ reader.readAsDataURL(eventData.target.files[0]);
+ reader.onload = (event:any)=> {
+  this.userimgurl = event.target.result; 
+ }
+
 }
 }
